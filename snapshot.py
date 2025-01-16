@@ -1,5 +1,4 @@
 from func_pac import *
-from bs4 import BeautifulSoup
 
 class Snapshot:
     def __init__(self, terms):
@@ -13,11 +12,10 @@ class Snapshot:
 
     def search_keyword(self, keyword):
         """
-        Search for a keyword in the list of posts.
-
-        :param posts: List of formatted posts
-        :param keyword: Keyword to search for
-        :return: List of posts containing the keyword
+        changes structure of object posts
+        by filtering out posts that do not contain keyword
+        useful to combine with find_pop
+        can be used multiple times to progressively filter posts
         """
         keyword = keyword.lower()
         matching_posts = [post for post in self.posts if keyword in post["content"].lower()]
